@@ -1,10 +1,18 @@
 Description:
+
 The battle will be based on turns,
 each time a character attacks and the other receives the damage.
 The character has energy points and power points.
 These two properties are integers numbers.
-For example,
-if the hero(energy points: 60, power points:45) attacks a enemy(energy points: 60, power points:45) the enemy will have the energy decreased some points. The damage received, decreased energy points, by enemy depends on luck factor. Luck factor is a random number from 0 to 100 that is given for each attack turn.
+
+
+For example:
+
+if the hero(energy points: 60, power points:45) attacks a enemy(energy points: 60, power points:45)
+the enemy will have the energy decreased some points.
+The damage received, decreased energy points, by enemy depends on luck factor.
+Luck factor is a random number from 0 to 100 that is given for each attack turn.
+
 
 There is four kinds of attacks based on your luck factor:
 
@@ -12,3 +20,20 @@ When the luck is 0-3 then the attack is Miss -> doesn’t cause any damage;
 When the luck is 4-70 then the attack is Normal -> causes 1/3 of your power points in damage;
 When the luck is 71-96 then the attack is Lucky -> causes 1/3 of your power points plus twenty percent of this 1/3 in damage;
 When the luck is 97-100 then the attack is Critical -> causes the double of normal attack.
+
+TODO:
+
+DONE:
+character should have different power and energy points, and fix things
+move all thses to Character
+remove Luck, it's no use any more
+refactor under_attack
+add luck to game
+add under_attack method to enemy
+refactor attack to character
+character should have role: 'hero' | 'enemy'
+hero can attack
+we can have a hero to fight enemy
+hero should be initialized with power and energy
+we should have a enemy to fight with hero too
+refactor hero and enemy to inherit from character
