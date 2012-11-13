@@ -25,6 +25,8 @@ TODO:
 
 
 DONE:
+create random order for all characters
+all enemies must just attack hero not other enemies
 engine can handle turns
 extract params from Engine#initialize
 engine can initialize hero and enimies
