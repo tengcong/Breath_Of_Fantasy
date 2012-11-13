@@ -22,10 +22,10 @@ When the luck is 71-96 then the attack is Lucky -> causes 1/3 of your power poin
 When the luck is 97-100 then the attack is Critical -> causes the double of normal attack.
 
 TODO:
-engine can handle turns
 
 
 DONE:
+engine can handle turns
 extract params from Engine#initialize
 engine can initialize hero and enimies
 add engine to game
