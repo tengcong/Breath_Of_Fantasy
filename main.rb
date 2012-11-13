@@ -1,3 +1,3 @@
 require_relative 'engine'
 require_relative 'character'
-Engine.new(1).start_fight
+Engine.new(2).start_fight

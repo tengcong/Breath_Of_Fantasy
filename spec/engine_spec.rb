@@ -3,7 +3,7 @@ describe Engine do
   describe "#initialize" do
     it "should create hero and several enimies" do
       Character.should_receive(:new).with(200, 200, 'hero')
-      Character.should_receive(:new).with(50, 50, 'enemy').at_least(1).times
+      Character.should_receive(:new).at_least(1).times
 
       Engine.new
     end
