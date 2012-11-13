@@ -7,6 +7,8 @@ class Engine
   end
 
   def start_fight
+    p "#{@hero.energy}"
+    p "#{@enimies.first.energy}"
     @enimies.each do |enemy|
       enemy.attack(@hero)
       @hero.attack(enemy)
@@ -34,7 +36,7 @@ class Engine
 
   def create_enemies how_many_enemies
     [].tap do |arr|
-      how_many_enemies.times{ arr << Character.new(50, 50, 'enemy') }
+      how_many_enemies.times{ arr << Character.new(200, 200, 'enemy') }
     end
   end
 

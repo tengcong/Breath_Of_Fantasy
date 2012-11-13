@@ -14,11 +14,15 @@ class Character
   end
 
   def attack other
+    p "#{self.role} attack #{other.role}"
     other.under_attack self
   end
 
   def under_attack by_who
     @energy -= caculated_damage_from(current_luck, by_who)
+    p "#{current_luck} luck"
+    p "#{self.role} energy = #@energy"
+    sleep 1
   end
 
 end
