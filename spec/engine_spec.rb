@@ -1,4 +1,4 @@
-require "engine"
+require 'spec_helper'
 describe Engine do
   describe "#initialize" do
     it "should create hero and several enimies" do

@@ -1,6 +1,4 @@
-
-require "character"
-
+require 'spec_helper'
 describe Character do
 
   describe "#initialize" do

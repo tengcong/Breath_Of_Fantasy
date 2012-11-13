@@ -1,4 +1,4 @@
-require "game_helper"
+require_relative "game_helper"
 class Character
 
   attr_accessor :power
