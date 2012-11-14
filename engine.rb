@@ -16,8 +16,8 @@ class Engine
 
   def start_fight fight_order
     members_count.times do
-      break if over?
       current = self.next(fight_order)
+      next if current.died? || over?
       if current.role == "hero"
         @enemies.select(&:alive).each{|e| current.attack e}
       elsif current.role == "enemy"
