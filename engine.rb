@@ -11,7 +11,7 @@ class Engine
     (@enemies_count + 1).times do
       current = self.next
       if current.role == "hero"
-        current.attack @enimies.first
+        @enimies.each{|e| current.attack e}
       elsif current.role == "enemy"
         current.attack @hero
       end

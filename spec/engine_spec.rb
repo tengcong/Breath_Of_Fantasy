@@ -21,8 +21,41 @@ describe Engine do
   end
 
   describe "#start_fight" do
+    context "1 v n" do
+      it "should depend on Engine#next to fight in right order" do
+        hero = Character.new(1,1)
+        en1 = Character.new(1,1,'enemy')
+        en2 = Character.new(1,1,'enemy')
+        en3 = Character.new(1,1,'enemy')
+        Engine.any_instance.stub(:create_enemies).and_return([en1, en2, en3])
+        Engine.any_instance.stub(:create_hero).and_return(hero)
+
+        engine = Engine.new(3)
+        engine.stub(:next).and_return(en1, hero, en3, en2)
+
+        en1.should_receive(:attack).ordered.and_call_original
+        hero.should_receive(:under_attack).ordered
+
+        hero.should_receive(:attack).ordered.and_call_original
+        en1.should_receive(:under_attack).ordered
+
+        hero.should_receive(:attack).ordered.and_call_original
+        en2.should_receive(:under_attack).ordered
+
+        hero.should_receive(:attack).ordered.and_call_original
+        en3.should_receive(:under_attack).ordered
+
+        en3.should_receive(:attack).ordered.and_call_original
+        hero.should_receive(:under_attack).ordered
+
+        en2.should_receive(:attack).ordered.and_call_original
+        hero.should_receive(:under_attack).ordered
+
+        engine.start_fight
+      end
+    end
     context "1 v 1" do
-      it "should depend on Engine#next to fight in right order", :focus do
+      it "should depend on Engine#next to fight in right order" do
         hero = Character.new(1,1)
         enemy = Character.new(1,1,'enemy')
         Engine.any_instance.stub(:create_enemies).and_return([enemy])
