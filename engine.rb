@@ -6,18 +6,24 @@ class Engine
     @counter = -1
   end
 
+
   def start_fight
-    @enimies.each do |enemy|
-      enemy.attack(@hero)
-      @hero.attack(enemy)
+    (@enemies_count + 1).times do
+      current = self.next
+      if current.role == "hero"
+        current.attack @enimies.first
+      elsif current.role == "enemy"
+        current.attack @hero
+      end
     end
   end
 
   def next
     @counter += 1
     origin_characters = [@hero, @enimies].flatten
+    new_order = create_fight_order
     characters = origin_characters.sort_by do |character|
-      create_fight_order.index(origin_characters.index(character))
+      new_order.index(origin_characters.index(character))
     end
 
     cursor = @counter % characters.count

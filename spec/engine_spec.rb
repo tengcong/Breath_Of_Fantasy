@@ -21,6 +21,27 @@ describe Engine do
   end
 
   describe "#start_fight" do
+    context "1 v 1" do
+      it "should depend on Engine#next to fight in right order", :focus do
+        hero = Character.new(1,1)
+        enemy = Character.new(1,1,'enemy')
+        Engine.any_instance.stub(:create_enemies).and_return([enemy])
+        Engine.any_instance.stub(:create_hero).and_return(hero)
+
+        engine = Engine.new(1)
+        engine.stub(:next).and_return(enemy, hero)
+
+        enemy.should_receive(:attack).ordered.and_call_original
+        hero.should_receive(:under_attack).ordered
+        hero.should_receive(:attack).ordered.and_call_original
+        enemy.should_receive(:under_attack).ordered
+
+        engine.start_fight
+      end
+    end
+  end
+
+  describe "#start_fight" do
     before(:each) do
       @hero = Character.new(1,1)
 

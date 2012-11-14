@@ -21,3 +21,4 @@ DEPENDENCIES
   bundle
   rake
   rspec
+  rspec-mocks
