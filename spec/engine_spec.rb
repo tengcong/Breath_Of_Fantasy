@@ -109,12 +109,11 @@ describe Engine do
       Engine.any_instance.stub(:create_enemies).and_return([e1, e2, e3])
 
       engine = Engine.new(3)
-      engine.stub(:create_fight_order).and_return([1,3,2,0])
 
-      engine.next.should == e1
-      engine.next.should == e3
-      engine.next.should == e2
-      engine.next.should == hero
+      engine.next([1,3,2,0]).should == e1
+      engine.next([1,3,2,0]).should == e3
+      engine.next([1,3,2,0]).should == e2
+      engine.next([1,3,2,0]).should == hero
     end
     context "1 hero and several enemies" do
       context "hero first" do
@@ -129,16 +128,15 @@ describe Engine do
           Engine.any_instance.stub(:create_enemies).and_return([e1, e2, e3])
 
           engine = Engine.new(2)
-          engine.stub(:create_fight_order).and_return([0, 1, 2, 3])
 
-          engine.next.should == hero
-          engine.next.should == e1
-          engine.next.should == e2
-          engine.next.should == e3
-          engine.next.should == hero
-          engine.next.should == e1
-          engine.next.should == e2
-          engine.next.should == e3
+          engine.next([0, 1, 2, 3]).should == hero
+          engine.next([0, 1, 2, 3]).should == e1
+          engine.next([0, 1, 2, 3]).should == e2
+          engine.next([0, 1, 2, 3]).should == e3
+          engine.next([0, 1, 2, 3]).should == hero
+          engine.next([0, 1, 2, 3]).should == e1
+          engine.next([0, 1, 2, 3]).should == e2
+          engine.next([0, 1, 2, 3]).should == e3
         end
       end
     end
@@ -155,11 +153,10 @@ describe Engine do
           end
 
           engine = Engine.new(1)
-          engine.stub(:create_fight_order).and_return([0, 1])
-          engine.next.should == hero
-          engine.next.should == enemy
-          engine.next.should == hero
-          engine.next.should == enemy
+          engine.next([0, 1]).should == hero
+          engine.next([0, 1]).should == enemy
+          engine.next([0, 1]).should == hero
+          engine.next([0, 1]).should == enemy
         end
       end
     end

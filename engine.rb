@@ -8,8 +8,9 @@ class Engine
 
 
   def start_fight
+    fight_order = create_fight_order
     (@enemies_count + 1).times do
-      current = self.next
+      current = self.next(fight_order)
       if current.role == "hero"
         @enimies.each{|e| current.attack e}
       elsif current.role == "enemy"
@@ -18,12 +19,11 @@ class Engine
     end
   end
 
-  def next
+  def next fight_order
     @counter += 1
     origin_characters = [@hero, @enimies].flatten
-    new_order = create_fight_order
     characters = origin_characters.sort_by do |character|
-      new_order.index(origin_characters.index(character))
+      fight_order.index(origin_characters.index(character))
     end
 
     cursor = @counter % characters.count

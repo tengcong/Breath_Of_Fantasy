@@ -22,11 +22,11 @@ When the luck is 71-96 then the attack is Lucky -> causes 1/3 of your power poin
 When the luck is 97-100 then the attack is Critical -> causes the double of normal attack.
 
 TODO:
-start_fight should depend on next method
 add loop into engine till all enemies died or hero died
 
 
 DONE:
+start_fight should depend on next method
 create random order for all characters
 all enemies must just attack hero not other enemies
 engine can handle turns
