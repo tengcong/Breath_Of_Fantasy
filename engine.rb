@@ -7,9 +7,6 @@ class Engine
   end
 
   def start_fight
-    p "#{@hero.energy}"
-    p "#{@enimies.first.energy}"
-
     @enimies.each do |enemy|
       enemy.attack(@hero)
       @hero.attack(enemy)
