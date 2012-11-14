@@ -9,6 +9,55 @@ describe Engine do
     end
   end
 
+  describe "#over?" do
+    context "1 v n" do
+      context "enemy died" do
+        it "game over" do
+          en1 = double('enemy')
+          en2 = double('enemy')
+          en3 = double('enemy')
+
+          Engine.any_instance.stub(:create_enemies).and_return([en1, en2, en3])
+          engine = Engine.new(1)
+          en1.stub(:died?).and_return(false)
+          en2.stub(:died?).and_return(false)
+          en3.stub(:died?).and_return(false)
+          engine.over?.should == false
+
+          en1.stub(:died?).and_return(true)
+          en2.stub(:died?).and_return(false)
+          en3.stub(:died?).and_return(false)
+          engine.over?.should == false
+
+          en1.stub(:died?).and_return(true)
+          en2.stub(:died?).and_return(false)
+          en3.stub(:died?).and_return(true)
+          engine.over?.should == false
+
+          en1.stub(:died?).and_return(true)
+          en2.stub(:died?).and_return(true)
+          en2.stub(:died?).and_return(true)
+          engine.over?.should == true
+        end
+      end
+
+      context "hero died" do
+        it "game over" do
+          hero = double('hero')
+
+          Engine.any_instance.stub(:create_hero).and_return(hero)
+
+          engine = Engine.new(1)
+          hero.stub(:died?).and_return(false)
+          engine.over?.should == false
+
+          hero.stub(:died?).and_return(true)
+          engine.over?.should == true
+        end
+      end
+    end
+  end
+
   describe "#create_fight_order" do
     it "should return arr with rand right figure " do
       engine = Engine.new(3)

@@ -1,6 +1,16 @@
 require 'spec_helper'
 describe Character do
 
+
+  describe "died?" do
+    it "depends on character's energy" do
+      c = Character.new 1, 1
+      c.died?.should == false
+      c.energy = 0
+      c.died?.should == true
+    end
+  end
+
   describe "#initialize" do
     it "should be initialized with power and energy" do
       c = Character.new 100, 10

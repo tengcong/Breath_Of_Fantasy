@@ -26,6 +26,7 @@ add loop into engine till all enemies died or hero died
 
 
 DONE:
+add game over? judgement
 start_fight should depend on next method
 create random order for all characters
 all enemies must just attack hero not other enemies

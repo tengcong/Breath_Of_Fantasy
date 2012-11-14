@@ -6,7 +6,6 @@ class Engine
     @counter = -1
   end
 
-
   def start_fight
     fight_order = create_fight_order
     (@enemies_count + 1).times do
@@ -17,6 +16,10 @@ class Engine
         current.attack @hero
       end
     end
+  end
+
+  def over?
+    @hero.died? || @enimies.all?(&:died?)
   end
 
   def next fight_order

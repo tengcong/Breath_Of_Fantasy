@@ -13,6 +13,10 @@ class Character
     @role = role
   end
 
+  def died?
+    @energy <= 0
+  end
+
   def attack other
     other.under_attack self
   end
