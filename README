@@ -1,5 +1,7 @@
-Description:
+This is a Test-Driven Develpment Practive
 
+------------------------------------------
+Description:
 The battle will be based on turns,
 each time a character attacks and the other receives the damage.
 The character has energy points and power points.
