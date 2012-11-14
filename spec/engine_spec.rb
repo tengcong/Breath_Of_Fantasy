@@ -80,7 +80,7 @@ describe Engine do
         Engine.any_instance.stub(:create_hero).and_return(hero)
 
         engine = Engine.new(3)
-        engine.stub(:next).and_return(en1, hero, en3, en2)
+        #engine.stub(:next).and_return(en1, hero, en3, en2)
 
         en1.should_receive(:attack).ordered.and_call_original
         hero.should_receive(:under_attack).ordered
@@ -111,7 +111,7 @@ describe Engine do
         Engine.any_instance.stub(:create_hero).and_return(hero)
 
         engine = Engine.new(1)
-        engine.stub(:next).and_return(enemy, hero)
+        #engine.stub(:next).and_return(enemy, hero)
 
         enemy.should_receive(:attack).ordered.and_call_original
         hero.should_receive(:under_attack).ordered
