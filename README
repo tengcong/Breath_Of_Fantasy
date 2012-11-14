@@ -22,10 +22,10 @@ When the luck is 71-96 then the attack is Lucky -> causes 1/3 of your power poin
 When the luck is 97-100 then the attack is Critical -> causes the double of normal attack.
 
 TODO:
-add loop into engine till all enemies died or hero died
 
 
 DONE:
+add loop into engine till all enemies died or hero died
 add game over? judgement
 start_fight should depend on next method
 create random order for all characters
@@ -49,3 +49,73 @@ hero should be initialized with power and energy
 we should have a enemy to fight with hero too
 refactor hero and enemy to inherit from character
 ...
+
+
+------------------------------------
+Enemies Dumping Tray !
+"hero(70227836672280) attack enemy(70227836672220)"
+"luck is 61"
+"by 33"
+"enemy(70227836672220) left energy is 67"
+"hero(70227836672280) attack enemy(70227836672180)"
+"luck is 52"
+"by 33"
+"enemy(70227836672180) left energy is 67"
+"----------"
+"enemy(70227836672220) attack hero(70227836672280)"
+"luck is 20"
+"by 33"
+"hero(70227836672280) left energy is 167"
+"----------"
+"enemy(70227836672180) attack hero(70227836672280)"
+"luck is 70"
+"by 33"
+"hero(70227836672280) left energy is 134"
+"----------"
+"hero(70227836672280) attack enemy(70227836672220)"
+"luck is 70"
+"by 33"
+"enemy(70227836672220) left energy is 34"
+"hero(70227836672280) attack enemy(70227836672180)"
+"luck is 62"
+"by 33"
+"enemy(70227836672180) left energy is 34"
+"----------"
+"enemy(70227836672220) attack hero(70227836672280)"
+"luck is 4"
+"by 33"
+"hero(70227836672280) left energy is 101"
+"----------"
+"enemy(70227836672180) attack hero(70227836672280)"
+"luck is 79"
+"by 39.6"
+"hero(70227836672280) left energy is 61.4"
+"----------"
+"hero(70227836672280) attack enemy(70227836672220)"
+"luck is 95"
+"by 39.6"
+"enemy(70227836672220) left energy is -5.600000000000001"
+"hero(70227836672280) attack enemy(70227836672180)"
+"luck is 29"
+"by 33"
+"enemy(70227836672180) left energy is 1"
+"----------"
+"----------"
+"enemy(70227836672180) attack hero(70227836672280)"
+"luck is 29"
+"by 33"
+"hero(70227836672280) left energy is 28.4"
+"----------"
+"hero(70227836672280) attack enemy(70227836672180)"
+"luck is 3"
+"by 0"
+"enemy(70227836672180) left energy is 1"
+"----------"
+"----------"
+"enemy(70227836672180) attack hero(70227836672280)"
+"luck is 76"
+"by 39.6"
+"hero(70227836672280) left energy is -11.200000000000003"
+"----------"
+enemies win!
+

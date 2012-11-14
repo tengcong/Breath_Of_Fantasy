@@ -1,7 +1,7 @@
 module GameHelper
 
   def caculated_damage_from luck, by_who
-    if (0..3).include? luck
+    ret = if (0..3).include? luck
       0
     elsif (4..70).include? luck
       by_who.power / 3
@@ -10,6 +10,9 @@ module GameHelper
     else
       by_who.power * 2
     end
+    p "luck is #{luck}"
+    p "by #{ret}"
+    ret
   end
 
   def current_luck

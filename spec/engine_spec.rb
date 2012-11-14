@@ -2,7 +2,7 @@ require 'spec_helper'
 describe Engine do
   describe "#initialize" do
     it "should create hero and several enimies" do
-      Character.should_receive(:new).with(200, 200, 'hero')
+      Character.should_receive(:new).with(100, 200, 'hero')
       Character.should_receive(:new).at_least(1).times
 
       Engine.new
@@ -100,7 +100,7 @@ describe Engine do
         en2.should_receive(:attack).ordered.and_call_original
         hero.should_receive(:under_attack).ordered
 
-        engine.start_fight
+        engine.start_fight([1,0,3,2])
       end
     end
     context "1 v 1" do
@@ -118,7 +118,7 @@ describe Engine do
         hero.should_receive(:attack).ordered.and_call_original
         enemy.should_receive(:under_attack).ordered
 
-        engine.start_fight
+        engine.start_fight([1,0])
       end
     end
   end
@@ -135,14 +135,15 @@ describe Engine do
     context "hero attack enimies" do
       it "should attack every enemy" do
         @hero.should_receive(:attack).exactly(3).times
-        Engine.new(3).start_fight
+        Engine.new(3).start_fight([0,1,2,3])
       end
     end
 
     context "enemies attack hero" do
       it "should attack hero 3 times when 3 enemies" do
         @hero.should_receive(:under_attack).exactly(3).times
-        Engine.new(3).start_fight
+        Engine.new(3).start_fight([0,1,2,3])
+
       end
     end
   end
