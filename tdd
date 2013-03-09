@@ -1,0 +1,71 @@
+1. what is TDD
+   picture
+
+2. bottom to top, top to bottom
+    for example
+
+# bowling_spec.rb
+require 'bowling'
+
+describe Bowling, "#score" do
+  it "returns 0 for all gutter game" do
+      bowling = Bowling.new
+      20.times { bowling.hit(0) }
+      bowling.score.should eq(0)
+  end
+end
+
+# bowling.rb
+class Bowling
+  def hit(pins)
+  end
+
+  def score
+    0
+  end
+end
+
+3. rspec
+
+core
+
+describe Order do
+  context "with no items" do
+    it "behaves one way" do
+      # ...
+    end
+  end
+
+  context "with one item" do
+    it "behaves another way" do
+      # ...
+    end
+  end
+end
+---
+
+Expectations
+
+actual.should be(expected)    # passes if actual.equal?(expected)
+actual.should equal(expected) # passes if actual.equal?(expected) actual.should eq(expected)  # passes if actual == expected
+actual.should == expected   # passes if actual == expected
+actual.should eql(expected) # passes if actual.eql?(expected)
+expect(order.total).to eq(Money.new(5.55, :USD))
+expect { ... }.to raise_error
+expect { ... }.to throw_symbol(:symbol)
+
+....
+http://rubydoc.info/gems/rspec-expectations/frames
+
+----
+
+Mocks
+
+book = double("book")
+book.stub(:title) { "The RSpec Book" }
+book.stub(:title => "The RSpec Book")
+book.stub(:title).and_return("The RSpec Book")
+
+Person.should_receive(:find) { person }
+
+http://rubydoc.info/gems/rspec-mocks/frames
